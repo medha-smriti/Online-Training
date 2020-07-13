@@ -15,16 +15,17 @@ import java.util.*;
 
 public class CreatePost {
 
+     Twitter twitter = new TwitterFactory().getInstance();
+
     /*
      * Posting a status on the timeline
      * @params = tweet
      */
     @ParameterNames("Tweet")
     @PostConstruct
-    public static void NewPost(String tweet)
+    public static void newPost(String tweet)
     {
         try {
-            Twitter twitter = new TwitterFactory().getInstance();
             twitter.updateStatus(tweet);
             System.out.println("tweet successful");
         } catch (TwitterException te) {
