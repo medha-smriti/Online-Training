@@ -6,14 +6,15 @@ import java.util.*;
 
 public class GetFeeds {
 
+    Twitter twitter = new TwitterFactory().getInstance();
+
     /*
      * Getting all the posts from one's timeline
      */
     @Getter
-    public static void GetAll()
+    public static void getAll()
     {
         try{
-            Twitter twitter = new TwitterFactory().getInstance();
             List<Status >statuses = twitter.getHomeTimeline();
             for(Status status: statuses)
                 System.out.println(status.getUser().getName()+ " " + status.getText());
